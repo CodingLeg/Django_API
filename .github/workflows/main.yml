@@ -25,3 +25,24 @@ jobs:
 
       - name: "Running migrate"
         run: python3 manage.py migrate
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@main
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.3'
+
+      - name: "Upgrading PIP"
+        run: pip3 install --upgrade pip
+
+      - name: "Installing the Dependencies"
+        run: pip3 install -r requirements.txt
+
+      - name: "Testing"
+        run: pip3 manage.py test
