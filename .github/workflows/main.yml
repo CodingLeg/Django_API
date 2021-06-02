@@ -26,6 +26,9 @@ jobs:
       - name: "Running migrate"
         run: python3 manage.py migrate
 
+      - name: "Testing"
+        run: pip3 manage.py test  
+
   test:
     runs-on: ubuntu-20.04
     steps:
