@@ -28,4 +28,3 @@ jobs:
 
       - name: "Running migrate"
         run: python3 manage.py migrate
-        
