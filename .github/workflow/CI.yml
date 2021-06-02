@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  build:
+    run-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: action/checkout@master
+
+      - name: "Setup Python"
+        uses: action/setup-python@v2
+        with:
+          python-version: '3.8.3'
+
+      - name: "Upgrading PIP"
+        run: pip3 install --upgrade pip
+
+      - name: "Installing the Dependencies"
+        run: pip3 install -r requirements.txt
+
+      - name: "Running Makemigrations"
+        run: python3 manage.py makemigrations
+
+      - name: "Running migrate"
+        run: python3 manage.py migrate
+        
