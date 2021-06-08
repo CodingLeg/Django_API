@@ -18,7 +18,7 @@ jobs:
         run: pip3 install --upgrade pip
 
       - name: "Installing the Dependencies"
-        run: pip3 install -U -r requirements.txt
+        run: pip3 install -F -r requirements.txt
 
       - name: "Running Makemigrations"
         run: python3 manage.py makemigrations
